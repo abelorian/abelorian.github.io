@@ -1,62 +1,23 @@
-<html>
-<head>
-<link rel="stylesheet" href="css/foundation.css" />
-</head>
-<body>
-    <!-- Nav Bar -->
- 
-  <div class="row">
-    <div class="large-12 columns">
-      <div class="nav-bar right">
-       <ul class="button-group">
-         <li><a href="#" class="button">Link 1</a></li>
-         <li><a href="#" class="button">Link 2</a></li>
-         <li><a href="#" class="button">Link 3</a></li>
-         <li><a href="#" class="button">Link 4</a></li>
-        </ul>
-      </div>
-      <h1>Blog <small>This is my blog. It's awesome.</small></h1>
-      <hr />
-    </div>
-  </div>
- 
-  <!-- End Nav -->
- 
- 
-  <!-- Main Page Content and Sidebar -->
- 
+---
+layout: default
+---
 
-  <div class="row">
-      <iframe src="https://drive.google.com/file/d/0BwJwbr268RPRM1FrWE5HbVFyWGM/preview" width="640" height="480"></iframe>
-  </div>
-  
-  <div class="">
-      <img src="img/giphy-tumblr.gif" width="400px" height="400px">
-  </div>
- 
-  <!-- End Main Content and Sidebar -->
- 
- 
-  <!-- Footer -->
- 
-  <footer class="row">
-    <div class="large-12 columns">
-      <hr />
-      <div class="row">
-        <div class="large-6 columns">
-          <p>© Copyright no one at all. Go to town.</p>
-        </div>
-        <div class="large-6 columns">
-          <ul class="inline-list right">
-            <li><a href="#">Link 1</a></li>
-            <li><a href="#">Link 2</a></li>
-            <li><a href="#">Link 3</a></li>
-            <li><a href="#">Link 4</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </footer>
-    
-</body>
-</html>
+<div class="home">
+
+  <h1 class="page-heading">Posts</h1>
+
+  <ul class="post-list">
+    {% for post in site.posts %}
+      <li>
+        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+
+        <h2>
+          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+        </h2>
+      </li>
+    {% endfor %}
+  </ul>
+
+  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
+
+</div>
